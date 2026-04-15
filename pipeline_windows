@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "23mis0488/html-demo1"
+        PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;%PATH%"
     }
 
     stages {
@@ -29,7 +30,7 @@ pipeline {
                         passwordVariable: 'PASS'
                     )
                 ]) {
-                    bat 'docker login -u %USER% -p %PASS%'
+                    bat 'echo %PASS% | docker login -u %USER% --password-stdin'
                     bat 'docker push %DOCKER_IMAGE%'
                 }
             }
@@ -53,3 +54,13 @@ pipeline {
 
     }
 }
+
+
+
+extra commands:
+
+docker --version
+kubectl version --client
+
+where docker
+C:\Program Files\Docker\Docker\resources\bin-       copy only till bin
