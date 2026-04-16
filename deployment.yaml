@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: html-demo
-          image: 23mis0488/html-demo1:latest //change this according to dockerhub repo
+          image: 23mis0488/html-demo1:latest 
           ports:
             - containerPort: 80
 
